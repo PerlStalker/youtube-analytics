@@ -1,0 +1,30 @@
+#+TITLE: YouTube Analytics
+
+* Lifetime
+  :PROPERTIES:
+  :header-args: :var file="lifetime.csv" :var db="yta.db" :var bindir="/home/rbsmith/src/vc/youtube-analytics/bin" :dir ~/yta/lifetime
+  :END:
+
+#+begin_src sh :exports none :cache yes
+$bindir/yta.pl deploy --db $db
+$bindir/yta.pl import_view --db $db $file
+#+end_src
+
+#+RESULTS[33ac188a0f033c0d4e5c2da52ab4d4c7596b20ff]:
+
+#+begin_src sh :exports none :cache yes
+$bindir/yta.pl chart --db $db --report_path=. --all
+#+end_src
+
+#+RESULTS[bccf1c339a472b201e3f25b9e510314aeb0384d8]:
+
+
+[[~/yta/lifetime/yta-views.png]]
+
+[[~/yta/lifetime/yta-duration.png]]
+
+[[~/yta/lifetime/yta-likes.png]]
+
+[[~/yta/lifetime/yta-comments.png]]
+
+[[~/yta/lifetime/yta-subs.png]]
